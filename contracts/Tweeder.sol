@@ -7,7 +7,7 @@ import "./ConvertLib.sol";
 // coin/token contracts. If you want to create a standards-compliant
 // token, see: https://github.com/ConsenSys/Tokens. Cheers!
 
-contract MetaCoin {
+contract Tweeder {
     mapping (address => uint) balances;
     mapping (address => string[]) tweeds;
     uint TWEED_LIMIT = 180;
