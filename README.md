@@ -35,8 +35,7 @@ There are two options for usage, directly with web3.js API or with React app
 
     example: >> contractInstance.methods.postTweed("hello world!")
 
-#### function getTweed(address userAddress, uint tweedIndex) public view returns(
-        uint id, bytes32 uuid, address user, uint date, string memory text, bool retweet, bool edited, bool hidden)
+#### function getTweed(address userAddress, uint tweedIndex) public view returns(uint id, bytes32 uuid, address user, uint date, string memory text, bool retweet, bool edited, bool hidden)
     Let's fetch the first tweed of account 0x1233455
 
     example: >> contractInstance.methods.getTweed("0x1233455",0) 
@@ -53,8 +52,7 @@ There are two options for usage, directly with web3.js API or with React app
 
     example: >> contractInstance.methods.postReply("0x3428795043534...", "you suck!") // again, user is implied, depends on default account (msg.sender)
 
-#### function getReply(bytes32 tweedUUID, uint replyIndex) public view returns(
-        uint id, bytes32 uuid, address userAdress, uint date, string memory text, bool edited, bool hidden)
+#### function getReply(bytes32 tweedUUID, uint replyIndex) public view returns(uint id, bytes32 uuid, address userAdress, uint date, string memory text, bool edited, bool hidden)
         example: >> contractInstance.methods.getReply("0x3428795043534...", 0)
 
 #### function editReply(bytes32 tweedUUID, uint replyIndex, string memory newContent) public returns(bool)
