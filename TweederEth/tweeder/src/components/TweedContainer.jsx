@@ -27,7 +27,14 @@ export default class TweedContainer extends Component {
         for(let account of accounts) {
             let tweedsCount = await Tweeder.methods.getTweedsCount(account).call();
             for(let i = 0; i < tweedsCount; i++) {
-                tweeds.push(await Tweeder.methods.getTweed(account,i).call());
+                let tweed = await Tweeder.methods.getTweed(account,i).call();
+                console.log(tweed);
+
+                if(tweed.hidden){
+                    continue;
+                }
+                else
+                    tweeds.push(tweed);
             }
         }
         this.setState({tweeds:this.sortTweedsByTimestamp(tweeds)});     
