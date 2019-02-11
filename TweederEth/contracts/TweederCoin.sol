@@ -1,6 +1,6 @@
 pragma solidity >=0.4.25 <0.6.0;
 
-import "./ConvertLib.sol";
+// import "./ConvertLib.sol";
 
 contract TweederCoin {
     mapping (address => uint) balances;
@@ -18,9 +18,9 @@ contract TweederCoin {
         return true;
     }
 
-    function getBalanceInEth(address addr) public view returns(uint){
-        return ConvertLib.convert(getBalance(addr),2);
-    }
+    // function getBalanceInEth(address addr) public view returns(uint){
+    //     return ConvertLib.convert(getBalance(addr),2);
+    // }
 
     function getBalance(address addr) public view returns(uint) {
         return balances[addr];

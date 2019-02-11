@@ -27,7 +27,7 @@ contract TweederCore {
         uint id, bytes32 uuid, address user, uint date, string memory text, bool retweet, bool edited, bool hidden){
         TweederTypes.Tweed memory tweed = userTweedMap[userAddress].tweeds[tweedIndex];
         if(tweedIndex >= userTweedMap[userAddress].tweeds.length || tweed.hidden == true)
-            return (uint(0), bytes32(0), address(0), uint(0), string("No Tweeds on this Account!"), false, false, false);
+            return (uint(0), bytes32(0), address(0), uint(0), string("No Tweeds on this Account!"), false, false, true);
         return (
         tweed.id, tweed.uuid, tweed.user, tweed.date, tweed.content.text, tweed.retweet, tweed.edited, tweed.hidden
         ); 
@@ -67,7 +67,7 @@ contract TweederCore {
         uint id, bytes32 uuid, address userAdress, uint date, string memory text, bool edited, bool hidden){
         TweederTypes.TweedReply memory tweedReply = tweedRepliesMap[tweedUUID].replies[replyIndex];
         if(replyIndex >= tweedRepliesMap[tweedUUID].replies.length || tweedReply.hidden) 
-            return (uint(0), bytes32(0), address(0), uint(0), string("No Replies to this Tweed!"), false, false);
+            return (uint(0), bytes32(0), address(0), uint(0), string("No Replies to this Tweed!"), false, true);
         return (
         tweedReply.id, tweedReply.uuid, tweedReply.user, tweedReply.date, tweedReply.content.text, tweedReply.edited, tweedReply.hidden
         );    
