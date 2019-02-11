@@ -23,7 +23,6 @@ There are two options for usage, directly with web3.js API or with React app
     NOTE: usually it takes sometime until the blockchain settels, up to a minute for some reason
 
 ### Usage with web3.js interaction console (geth attach)
-###API:
     Information regarding Contrarct location and ABI are in
     /path/to/project/build/contracts/Tweeder.json
     In this case, the address is 0x7c6Dd7fE0D1CCbDe3BFd784595Bc7CfAE5cfaF2E
@@ -31,43 +30,43 @@ There are two options for usage, directly with web3.js API or with React app
     after using the web3.js api to create an instance of the contract as a js object
     the following functions are to be used:
 
-    - function postTweed(string memory receivedContent) public returns(bool)
+#### function postTweed(string memory receivedContent) public returns(bool)
     post tweed with "hello world!"
 
     example: >> contractInstance.methods.postTweed("hello world!")
 
-    - function getTweed(address userAddress, uint tweedIndex) public view returns(
+#### function getTweed(address userAddress, uint tweedIndex) public view returns(
         uint id, bytes32 uuid, address user, uint date, string memory text, bool retweet, bool edited, bool hidden)
     Let's fetch the first tweed of account 0x1233455
 
     example: >> contractInstance.methods.getTweed("0x1233455",0) 
 
 
-    - function editTweed(uint tweedIndex, string memory newContent) public returns(bool)
+#### function editTweed(uint tweedIndex, string memory newContent) public returns(bool)
     example: >> contractInstance.methods.editTweed(0,"Hello World2!") // the user is implied, depends on the default account (msg.sender)
     
-    - function deleteTweed(uint tweedIndex) public returns(bool)
+#### function deleteTweed(uint tweedIndex) public returns(bool)
     example: >> contractInstance.methods.editTweed(0) // again, user is implied, depends on default account (msg.sender)
     
-    - function postReply(bytes32 tweedUUID, string memory replyContent) public returns(bool)
+#### function postReply(bytes32 tweedUUID, string memory replyContent) public returns(bool)
     post a comment, by passing tweedsUUID(is a part of the Tweed struct)
 
     example: >> contractInstance.methods.postReply("0x3428795043534...", "you suck!") // again, user is implied, depends on default account (msg.sender)
 
-    - function getReply(bytes32 tweedUUID, uint replyIndex) public view returns(
+#### function getReply(bytes32 tweedUUID, uint replyIndex) public view returns(
         uint id, bytes32 uuid, address userAdress, uint date, string memory text, bool edited, bool hidden)
         example: >> contractInstance.methods.getReply("0x3428795043534...", 0)
 
-    - function editReply(bytes32 tweedUUID, uint replyIndex, string memory newContent) public returns(bool)
+#### function editReply(bytes32 tweedUUID, uint replyIndex, string memory newContent) public returns(bool)
         example: >> contractInstance.methods.editReply("0x3428795043534...", "no, you suck!")
 
-    - function deleteReply(bytes32 tweedUUID, uint replyIndex) public returns(bool)
+#### function deleteReply(bytes32 tweedUUID, uint replyIndex) public returns(bool)
         example: >> contractInstance.methods.deleteReply("0x3428795043534...",0)
 
-    - function getTweedsCount(address user) public view returns(uint)
+#### function getTweedsCount(address user) public view returns(uint)
         example: >> contractInstance.methods.getTweedsCount("0x348920385...")
 
-    - function getRepliesCount(bytes32 tweedUUID) public view returns(uint)
+#### function getRepliesCount(bytes32 tweedUUID) public view returns(uint)
         example: >> contractInstance.methods.getRepliesCount("0x29420854380..")
 
 ## dependencies
