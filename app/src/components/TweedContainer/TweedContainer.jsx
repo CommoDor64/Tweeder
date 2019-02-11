@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {Tweeder, web3} from '../config/web3.config'
-
+import {Tweeder, web3} from '../../config/web3.config'
 import './TweedContainer.css';
-import TweedBox from './TweedBox'
+import TweedBox from '../TweedBox/TweedBox'
+import TweedCreateBox from './TweedCreateBox'
 
 export default class TweedContainer extends Component {
     constructor(props) {
@@ -49,7 +49,7 @@ export default class TweedContainer extends Component {
         return(
         <div>
             <div className='container'>
-                <TweedPostBox placeholder={'Make Ethereum Great Again!'}/>
+                <TweedCreateBox placeholder={'Make Ethereum Great Again!'}/>
 
                 {this.state.tweeds.map((tweed) => <TweedBox key={tweed.uuid} tweed={tweed}/>)}
             </div>     
@@ -58,31 +58,3 @@ export default class TweedContainer extends Component {
     }
 }
 
-class TweedPostBox extends Component {
-    constructor(props) {
-        super(props);
-        this.state ={
-            text:this.props.placeholder,
-        };
-        this.onChange = this.onChange.bind(this);
-        this.postTweed = this.postTweed.bind(this);
-    }
-
-    onChange(e) {
-        this.setState({text:e.target.value}, console.log(this.state.text));
-    }
-
-    postTweed(text) {
-        Tweeder.methods.postTweed(text).send({gas:150000});
-    }
-
-    render() {
-        return(
-            <div>
-                <textarea onChange={(e) => this.onChange(e)} placeholder={this.state.text}></textarea>
-                <button onClick={() => this.postTweed(this.state.text)}>Tweed!</button>
-            </div>
-        );
-    }
-
-}
