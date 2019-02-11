@@ -17,7 +17,7 @@ export default class TweedPostBox extends Component {
     }
 
     postTweed(text) {
-        Tweeder.methods.postTweed(text).send({gas:150000});
+        Tweeder.methods.postTweed(text).send({gas:500000});
     }
 
     render() {

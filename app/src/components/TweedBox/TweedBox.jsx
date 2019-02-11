@@ -14,7 +14,7 @@ export default class TweedBox extends React.Component{
     }
 
     async deleteTweed(tweedID) {
-        const succ = await Tweeder.methods.deleteTweed(tweedID).send();
+        const succ = await Tweeder.methods.deleteTweed(tweedID).send({gas:500000});
         return succ;
     }
 
@@ -27,7 +27,7 @@ export default class TweedBox extends React.Component{
         return(
         <div className='container'>
             <p>User: {this.props.tweed.user}</p>
-            <p> Says {this.props.tweed.text}</p>
+            <p> {this.props.tweed.text}</p>
             {(this.props.tweed.user !== 0) && <button onClick={() => this.editMode()}> Edit Tweed</button>}
             {this.state.editMode && <TweedPostBox tweedID={this.props.tweed.id} placeholder={this.props.tweed.text}/>}
             {(this.props.tweed.user !== 0) && <button onClick={() => this.deleteTweed(this.props.tweed.id)}>delete</button>}

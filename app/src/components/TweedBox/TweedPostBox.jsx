@@ -17,7 +17,7 @@ export default class TweedPostBox extends Component {
     }
 
     editTweed(tweedID) {
-        Tweeder.methods.editTweed(tweedID,this.state.text).send();
+        Tweeder.methods.editTweed(tweedID,this.state.text).send({gas:500000});
     }
 
     render() {
