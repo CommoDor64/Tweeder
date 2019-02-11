@@ -67,6 +67,16 @@ There are two options for usage, directly with web3.js API or with React app
 #### function getRepliesCount(bytes32 tweedUUID) public view returns(uint)
         example: >> contractInstance.methods.getRepliesCount("0x29420854380..")
 
+### Relevant files location
+    Solidity contracts:
+        /contracts/TweederCore.sol
+        /contract/Tweeder.sol
+    Solidity Config:
+        truffle-config.js
+    React App:
+        /app/src/components/*
+    React App Config
+        /app/src/config/web3.config.js
 ## dependencies
     - node and npm
 
@@ -76,7 +86,3 @@ There are two options for usage, directly with web3.js API or with React app
 ### web3.js API
     In the KVV provided further documentation, we use truffle framework thus the syntax may vary
     if you don't use it.
-
-## misc:
-    - completely unsecure approach, users basically can try and delete ot edit others tweeds,
-    the limitation is from the frontend not from the solidity code, which is risky.
