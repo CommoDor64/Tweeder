@@ -7,8 +7,9 @@ There are two options for usage, directly with web3.js API or with React app
     create a local forwarding to the ssh connection
     $ ssh -L 8545:127.0.0.1:8545 user6@160.45.38.66 
 
+    UNLESS RUNNING: (the GETH client should be running)
     After entering the password (provided on kvv submission), a geth client must be running
-    // on rhea machine
+    on rhea machine
     $ ./startGeth.sh
 
 ### Usage with react app
